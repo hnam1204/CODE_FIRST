@@ -1,0 +1,156 @@
+﻿@model List<HV_NIX.Controllers.CartItem>
+
+@{
+    ViewBag.Title = "Giỏ hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="~/Content/cart.css" />
+
+<main class="cart-container">
+    <h1 class="cart-title">Giỏ Hàng Của Bạn</h1>
+
+    @if (Model == null || !Model.Any())
+    {
+        <div class="cart-empty">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6
+                      7.59-1.35 2.45c-.16.28-.25.61-.25.96c0 1.1.9 2 2 2h12v-2H7.42
+                      c-.14 0-.25-.11-.25-.25l.03-.12l.9-1.63h7.45c.75 0 1.41-.41
+                      1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48c0-.55-.45-1-1-1H5.21
+                      l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2s2-.9 2-2-.9-2-2-2z" />
+            </svg>
+            <h2>Giỏ hàng trống</h2>
+            <p>Bạn chưa có sản phẩm nào trong giỏ hàng</p>
+            <a href="@Url.Action("Index", "Product")" class="btn-primary">Mua sắm ngay</a>
+        </div>
+    }
+    else
+    {
+        <div class="cart-content">
+            <!-- Danh sách sản phẩm -->
+            <div class="cart-items">
+                @foreach (var item in Model)
+                {
+                    // ảnh theo model mới = Thumbnail
+                    var imgPath = string.IsNullOrEmpty(item.Thumbnail)
+                        ? Url.Content("~/Content/Images/no-image.png")
+                        : (item.Thumbnail.StartsWith("/Content/Images/Products/", StringComparison.OrdinalIgnoreCase)
+                            ? Url.Content(item.Thumbnail)
+                            : Url.Content("~/Content/Images/Products/" + item.Thumbnail));
+
+                    <div class="cart-item" data-id="@item.ProductID" data-size="@item.Size">
+                        <img src="@imgPath"
+                             alt="@item.ProductName"
+                             onerror="this.onerror=null;this.src='@Url.Content("~/Content/Images/no-image.png")';" />
+
+                        <div class="cart-info">
+                            <h4>@item.ProductName</h4>
+                            <p>Size: @item.Size</p>
+                            <p class="price">@item.Price.ToString("N0")₫</p>
+
+                            <div class="quantity-control">
+                                <button class="decrease">−</button>
+                                <input type="text" class="quantity-input" value="@item.Quantity" readonly>
+                                <button class="increase">+</button>
+                            </div>
+                        </div>
+
+                        <form action="@Url.Action("Remove", "Cart")" method="post" class="remove-form">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" name="id" value="@item.ProductID" />
+                            <input type="hidden" name="size" value="@item.Size" />
+                            <button type="submit" class="remove-btn" title="Xóa sản phẩm">✖</button>
+                        </form>
+                    </div>
+                }
+            </div>
+
+            <!-- Tóm tắt -->
+            <div class="cart-summary">
+                <h3>🧾 Tóm Tắt Đơn Hàng</h3>
+                <div class="summary-row">
+                    <span>Tổng tiền:</span>
+                    <span id="totalAmount">@Model.Sum(x => x.Price * x.Quantity).ToString("N0")₫</span>
+                </div>
+
+                <button id="checkoutBtn" class="btn-checkout">Thanh toán</button>
+
+                <a href="@Url.Action("Index", "Product")" class="continue-shopping">← Tiếp tục mua sắm</a>
+            </div>
+        </div>
+    }
+</main>
+
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const updateCart = (id, size, quantity) => {
+                fetch('/Cart/UpdateQuantity', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: `id=${id}&size=${encodeURIComponent(size)}&quantity=${quantity}`
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success) {
+                            document.getElementById("cartCount").textContent = data.totalItems;
+                            document.getElementById("totalAmount").textContent = data.totalAmount;
+                        }
+                    })
+                    .catch(err => console.error("❌ Lỗi cập nhật giỏ hàng:", err));
+            };
+
+            document.querySelectorAll(".cart-item").forEach(item => {
+                const id = item.dataset.id;
+                const size = item.dataset.size;
+                const input = item.querySelector(".quantity-input");
+                const decrease = item.querySelector(".decrease");
+                const increase = item.querySelector(".increase");
+
+                decrease.addEventListener("click", () => {
+                    let qty = parseInt(input.value);
+                    if (qty > 1) {
+                        qty--;
+                        input.value = qty;
+                        updateCart(id, size, qty);
+                    }
+                });
+
+                increase.addEventListener("click", () => {
+                    let qty = parseInt(input.value);
+                    qty++;
+                    input.value = qty;
+                    updateCart(id, size, qty);
+                });
+            });
+
+            const checkoutBtn = document.getElementById("checkoutBtn");
+            if (checkoutBtn) {
+                checkoutBtn.addEventListener("click", () => {
+                    checkoutBtn.disabled = true;
+                    checkoutBtn.textContent = "Đang kiểm tra...";
+
+                    fetch('/Account/CheckLogin')
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.isLoggedIn) {
+                                checkoutBtn.textContent = "Đang chuyển hướng...";
+                                window.location.href = '/Cart/Checkout';
+                            } else {
+                                alert("⚠️ Vui lòng đăng nhập để thanh toán đơn hàng.");
+                                window.location.href = '/Account/Login';
+                            }
+                        })
+                        .catch(err => {
+                            console.error("❌ Lỗi kiểm tra đăng nhập:", err);
+                            checkoutBtn.disabled = false;
+                            checkoutBtn.textContent = "Thanh toán";
+                        });
+                });
+            }
+
+        });
+    </script>
+}

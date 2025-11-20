@@ -1,0 +1,154 @@
+﻿@model IEnumerable<HV_NIX.Models.Products>
+
+@{
+    ViewBag.Title = ViewBag.CategoryName ?? "Sản phẩm theo danh mục";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main class="container">
+    <h2 class="title">@ViewBag.CategoryName</h2>
+
+    @if (Model == null || !Model.Any())
+    {
+        <p style="text-align:center; color:#666; font-size:16px;">
+            Không có sản phẩm nào trong danh mục này.
+        </p>
+    }
+    else
+    {
+        <div class="product-grid">
+            @foreach (var item in Model)
+            {
+                // FIX ẢNH theo model mới (Thumbnail)
+                string imgPath;
+
+                if (string.IsNullOrEmpty(item.Thumbnail))
+                {
+                    imgPath = Url.Content("~/Content/Images/no-image.png");
+                }
+                else if (item.Thumbnail.StartsWith("/Content/Images", StringComparison.OrdinalIgnoreCase))
+                {
+                    imgPath = Url.Content(item.Thumbnail);
+                }
+                else
+                {
+                    imgPath = Url.Content("~/Content/Images/Products/" + item.Thumbnail);
+                }
+
+                <div class="card" onclick="viewProduct(@item.ProductID)">
+                    <div class="thumb">
+                        <img src="@imgPath"
+                             alt="@item.ProductName"
+                             class="img-fluid"
+                             onerror="this.onerror=null;this.src='@Url.Content("~/Content/Images/no-image.png")';" />
+                    </div>
+                    <div class="card-body">
+                        <div class="product-name">@item.ProductName</div>
+                        <div class="price">@String.Format("{0:N0}₫", item.Price)</div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</main>
+
+@section Scripts {
+    <script>
+        function viewProduct(id) {
+            window.location.href = '/Product/Details/' + id;
+        }
+    </script>
+}
+
+<style>
+    .container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 40px 20px;
+    }
+
+    .title {
+        text-align: center;
+        font-size: 28px;
+        font-weight: 600;
+        margin-bottom: 40px;
+        color: #111;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+        justify-items: center;
+    }
+
+    .card {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 100%;
+        max-width: 280px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+    .thumb {
+        width: 100%;
+        height: 280px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #fafafa;
+        border-bottom: 1px solid #eee;
+    }
+
+        .thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+    .card:hover .thumb img {
+        transform: scale(1.05);
+    }
+
+    .card-body {
+        padding: 15px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .product-name {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #333;
+        line-height: 1.4;
+        min-height: 44px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .price {
+        color: #e91e63;
+        font-weight: bold;
+        font-size: 18px;
+        margin-top: 5px;
+    }
+</style>

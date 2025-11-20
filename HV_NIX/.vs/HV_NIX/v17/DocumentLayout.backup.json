@@ -1,0 +1,462 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|d:\\n\u0103m 2\\l\u1EADp tr\u00ECnh web\\d\u1EF1 \u00E1n cu\u1ED1i k\u1EF3 web\\b\u00E0i n\u1ED9p\\hv_nix\\hv_nix\\models\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|solutionrelative:hv_nix\\models\\products.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|d:\\n\u0103m 2\\l\u1EADp tr\u00ECnh web\\d\u1EF1 \u00E1n cu\u1ED1i k\u1EF3 web\\b\u00E0i n\u1ED9p\\hv_nix\\hv_nix\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|solutionrelative:hv_nix\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|d:\\n\u0103m 2\\l\u1EADp tr\u00ECnh web\\d\u1EF1 \u00E1n cu\u1ED1i k\u1EF3 web\\b\u00E0i n\u1ED9p\\hv_nix\\hv_nix\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|solutionrelative:hv_nix\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|d:\\n\u0103m 2\\l\u1EADp tr\u00ECnh web\\d\u1EF1 \u00E1n cu\u1ED1i k\u1EF3 web\\b\u00E0i n\u1ED9p\\hv_nix\\hv_nix\\views\\product\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|solutionrelative:hv_nix\\views\\product\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|d:\\n\u0103m 2\\l\u1EADp tr\u00ECnh web\\d\u1EF1 \u00E1n cu\u1ED1i k\u1EF3 web\\b\u00E0i n\u1ED9p\\hv_nix\\hv_nix\\migrations\\202511200727167_init1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|solutionrelative:hv_nix\\migrations\\202511200727167_init1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|d:\\n\u0103m 2\\l\u1EADp tr\u00ECnh web\\d\u1EF1 \u00E1n cu\u1ED1i k\u1EF3 web\\b\u00E0i n\u1ED9p\\hv_nix\\hv_nix\\views\\cart\\thankyou.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|solutionrelative:hv_nix\\views\\cart\\thankyou.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|d:\\n\u0103m 2\\l\u1EADp tr\u00ECnh web\\d\u1EF1 \u00E1n cu\u1ED1i k\u1EF3 web\\b\u00E0i n\u1ED9p\\hv_nix\\hv_nix\\views\\cart\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|solutionrelative:hv_nix\\views\\cart\\checkout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|d:\\n\u0103m 2\\l\u1EADp tr\u00ECnh web\\d\u1EF1 \u00E1n cu\u1ED1i k\u1EF3 web\\b\u00E0i n\u1ED9p\\hv_nix\\hv_nix\\models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|solutionrelative:hv_nix\\models\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|d:\\n\u0103m 2\\l\u1EADp tr\u00ECnh web\\d\u1EF1 \u00E1n cu\u1ED1i k\u1EF3 web\\b\u00E0i n\u1ED9p\\hv_nix\\hv_nix\\views\\product\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|solutionrelative:hv_nix\\views\\product\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|d:\\n\u0103m 2\\l\u1EADp tr\u00ECnh web\\d\u1EF1 \u00E1n cu\u1ED1i k\u1EF3 web\\b\u00E0i n\u1ED9p\\hv_nix\\hv_nix\\views\\product\\category.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|solutionrelative:hv_nix\\views\\product\\category.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|d:\\n\u0103m 2\\l\u1EADp tr\u00ECnh web\\d\u1EF1 \u00E1n cu\u1ED1i k\u1EF3 web\\b\u00E0i n\u1ED9p\\hv_nix\\hv_nix\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|solutionrelative:hv_nix\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|d:\\n\u0103m 2\\l\u1EADp tr\u00ECnh web\\d\u1EF1 \u00E1n cu\u1ED1i k\u1EF3 web\\b\u00E0i n\u1ED9p\\hv_nix\\hv_nix\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|solutionrelative:hv_nix\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|d:\\n\u0103m 2\\l\u1EADp tr\u00ECnh web\\d\u1EF1 \u00E1n cu\u1ED1i k\u1EF3 web\\b\u00E0i n\u1ED9p\\hv_nix\\hv_nix\\views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|solutionrelative:hv_nix\\views\\product\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|d:\\n\u0103m 2\\l\u1EADp tr\u00ECnh web\\d\u1EF1 \u00E1n cu\u1ED1i k\u1EF3 web\\b\u00E0i n\u1ED9p\\hv_nix\\hv_nix\\models\\orderdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|solutionrelative:hv_nix\\models\\orderdetails.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|d:\\n\u0103m 2\\l\u1EADp tr\u00ECnh web\\d\u1EF1 \u00E1n cu\u1ED1i k\u1EF3 web\\b\u00E0i n\u1ED9p\\hv_nix\\hv_nix\\models\\orders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|solutionrelative:hv_nix\\models\\orders.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|d:\\n\u0103m 2\\l\u1EADp tr\u00ECnh web\\d\u1EF1 \u00E1n cu\u1ED1i k\u1EF3 web\\b\u00E0i n\u1ED9p\\hv_nix\\hv_nix\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|solutionrelative:hv_nix\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|d:\\n\u0103m 2\\l\u1EADp tr\u00ECnh web\\d\u1EF1 \u00E1n cu\u1ED1i k\u1EF3 web\\b\u00E0i n\u1ED9p\\hv_nix\\hv_nix\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|solutionrelative:hv_nix\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|d:\\n\u0103m 2\\l\u1EADp tr\u00ECnh web\\d\u1EF1 \u00E1n cu\u1ED1i k\u1EF3 web\\b\u00E0i n\u1ED9p\\hv_nix\\hv_nix\\migrations\\202511200633021_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|solutionrelative:hv_nix\\migrations\\202511200633021_init.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|d:\\n\u0103m 2\\l\u1EADp tr\u00ECnh web\\d\u1EF1 \u00E1n cu\u1ED1i k\u1EF3 web\\b\u00E0i n\u1ED9p\\hv_nix\\hv_nix\\migrations\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|solutionrelative:hv_nix\\migrations\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|d:\\n\u0103m 2\\l\u1EADp tr\u00ECnh web\\d\u1EF1 \u00E1n cu\u1ED1i k\u1EF3 web\\b\u00E0i n\u1ED9p\\hv_nix\\hv_nix\\models\\userinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|solutionrelative:hv_nix\\models\\userinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|d:\\n\u0103m 2\\l\u1EADp tr\u00ECnh web\\d\u1EF1 \u00E1n cu\u1ED1i k\u1EF3 web\\b\u00E0i n\u1ED9p\\hv_nix\\hv_nix\\models\\uses.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|solutionrelative:hv_nix\\models\\uses.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|d:\\n\u0103m 2\\l\u1EADp tr\u00ECnh web\\d\u1EF1 \u00E1n cu\u1ED1i k\u1EF3 web\\b\u00E0i n\u1ED9p\\hv_nix\\hv_nix\\models\\passwordreset.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|solutionrelative:hv_nix\\models\\passwordreset.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|d:\\n\u0103m 2\\l\u1EADp tr\u00ECnh web\\d\u1EF1 \u00E1n cu\u1ED1i k\u1EF3 web\\b\u00E0i n\u1ED9p\\hv_nix\\hv_nix\\models\\orderhistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|solutionrelative:hv_nix\\models\\orderhistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|d:\\n\u0103m 2\\l\u1EADp tr\u00ECnh web\\d\u1EF1 \u00E1n cu\u1ED1i k\u1EF3 web\\b\u00E0i n\u1ED9p\\hv_nix\\hv_nix\\models\\cartitems.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|solutionrelative:hv_nix\\models\\cartitems.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|d:\\n\u0103m 2\\l\u1EADp tr\u00ECnh web\\d\u1EF1 \u00E1n cu\u1ED1i k\u1EF3 web\\b\u00E0i n\u1ED9p\\hv_nix\\hv_nix\\models\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|solutionrelative:hv_nix\\models\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|d:\\n\u0103m 2\\l\u1EADp tr\u00ECnh web\\d\u1EF1 \u00E1n cu\u1ED1i k\u1EF3 web\\b\u00E0i n\u1ED9p\\hv_nix\\hv_nix\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{8F10CCFB-FC97-46F3-8249-7682CD791552}|HV_NIX\\HV_NIX.csproj|solutionrelative:hv_nix\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Products.cs",
+              "DocumentMoniker": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Models\\Products.cs",
+              "RelativeDocumentMoniker": "HV_NIX\\Models\\Products.cs",
+              "ToolTip": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Models\\Products.cs",
+              "RelativeToolTip": "HV_NIX\\Models\\Products.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T07:29:21.836Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "202511200727167_Init1.cs",
+              "DocumentMoniker": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Migrations\\202511200727167_Init1.cs",
+              "RelativeDocumentMoniker": "HV_NIX\\Migrations\\202511200727167_Init1.cs",
+              "ToolTip": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Migrations\\202511200727167_Init1.cs",
+              "RelativeToolTip": "HV_NIX\\Migrations\\202511200727167_Init1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T07:27:19.331Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "HV_NIX\\Controllers\\ProductController.cs",
+              "ToolTip": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "HV_NIX\\Controllers\\ProductController.cs",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAAAF4AAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T07:05:13.567Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "HV_NIX\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "HV_NIX\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAgwCcAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T06:37:55.041Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ThankYou.cshtml",
+              "DocumentMoniker": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Views\\Cart\\ThankYou.cshtml",
+              "RelativeDocumentMoniker": "HV_NIX\\Views\\Cart\\ThankYou.cshtml",
+              "ToolTip": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Views\\Cart\\ThankYou.cshtml",
+              "RelativeToolTip": "HV_NIX\\Views\\Cart\\ThankYou.cshtml",
+              "ViewState": "AgIAACQAAAAAAAAAAAAAADcAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-20T07:14:04.099Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CartController.cs",
+              "DocumentMoniker": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Controllers\\CartController.cs",
+              "RelativeDocumentMoniker": "HV_NIX\\Controllers\\CartController.cs",
+              "ToolTip": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Controllers\\CartController.cs",
+              "RelativeToolTip": "HV_NIX\\Controllers\\CartController.cs",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAowHwAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T07:06:10.681Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Views\\Product\\Create.cshtml",
+              "RelativeDocumentMoniker": "HV_NIX\\Views\\Product\\Create.cshtml",
+              "ToolTip": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Views\\Product\\Create.cshtml",
+              "RelativeToolTip": "HV_NIX\\Views\\Product\\Create.cshtml",
+              "ViewState": "AgIAADUAAAAAAAAAAAAAwE8AAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-20T07:22:23.335Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Category.cs",
+              "DocumentMoniker": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Models\\Category.cs",
+              "RelativeDocumentMoniker": "HV_NIX\\Models\\Category.cs",
+              "ToolTip": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Models\\Category.cs",
+              "RelativeToolTip": "HV_NIX\\Models\\Category.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T06:22:36.603Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Checkout.cshtml",
+              "DocumentMoniker": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Views\\Cart\\Checkout.cshtml",
+              "RelativeDocumentMoniker": "HV_NIX\\Views\\Cart\\Checkout.cshtml",
+              "ToolTip": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Views\\Cart\\Checkout.cshtml",
+              "RelativeToolTip": "HV_NIX\\Views\\Cart\\Checkout.cshtml",
+              "ViewState": "AgIAACUAAAAAAAAAAAAAwCwAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-20T07:15:53.707Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Models\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "HV_NIX\\Models\\AppDbContext.cs",
+              "ToolTip": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Models\\AppDbContext.cs",
+              "RelativeToolTip": "HV_NIX\\Models\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T06:19:11.812Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Views\\Product\\Details.cshtml",
+              "RelativeDocumentMoniker": "HV_NIX\\Views\\Product\\Details.cshtml",
+              "ToolTip": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Views\\Product\\Details.cshtml",
+              "RelativeToolTip": "HV_NIX\\Views\\Product\\Details.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-20T06:57:14.29Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Category.cshtml",
+              "DocumentMoniker": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Views\\Product\\Category.cshtml",
+              "RelativeDocumentMoniker": "HV_NIX\\Views\\Product\\Category.cshtml",
+              "ToolTip": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Views\\Product\\Category.cshtml",
+              "RelativeToolTip": "HV_NIX\\Views\\Product\\Category.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-20T07:02:59.378Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Views\\Product\\Index.cshtml",
+              "RelativeDocumentMoniker": "HV_NIX\\Views\\Product\\Index.cshtml",
+              "ToolTip": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Views\\Product\\Index.cshtml",
+              "RelativeToolTip": "HV_NIX\\Views\\Product\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-20T06:53:09.766Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "OrderDetails.cs",
+              "DocumentMoniker": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Models\\OrderDetails.cs",
+              "RelativeDocumentMoniker": "HV_NIX\\Models\\OrderDetails.cs",
+              "ToolTip": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Models\\OrderDetails.cs",
+              "RelativeToolTip": "HV_NIX\\Models\\OrderDetails.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T06:23:38.383Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Orders.cs",
+              "DocumentMoniker": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Models\\Orders.cs",
+              "RelativeDocumentMoniker": "HV_NIX\\Models\\Orders.cs",
+              "ToolTip": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Models\\Orders.cs",
+              "RelativeToolTip": "HV_NIX\\Models\\Orders.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T06:23:25.063Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "HV_NIX\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "HV_NIX\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAAwCYAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-20T06:40:28.944Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "HV_NIX\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "HV_NIX\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-11-20T06:41:20.428Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "202511200633021_Init.cs",
+              "DocumentMoniker": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Migrations\\202511200633021_Init.cs",
+              "RelativeDocumentMoniker": "HV_NIX\\Migrations\\202511200633021_Init.cs",
+              "ToolTip": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Migrations\\202511200633021_Init.cs",
+              "RelativeToolTip": "HV_NIX\\Migrations\\202511200633021_Init.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAQwCgAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T06:33:14.15Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Configuration.cs",
+              "DocumentMoniker": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Migrations\\Configuration.cs",
+              "RelativeDocumentMoniker": "HV_NIX\\Migrations\\Configuration.cs",
+              "ToolTip": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Migrations\\Configuration.cs",
+              "RelativeToolTip": "HV_NIX\\Migrations\\Configuration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T06:32:33.91Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "PasswordReset.cs",
+              "DocumentMoniker": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Models\\PasswordReset.cs",
+              "RelativeDocumentMoniker": "HV_NIX\\Models\\PasswordReset.cs",
+              "ToolTip": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Models\\PasswordReset.cs",
+              "RelativeToolTip": "HV_NIX\\Models\\PasswordReset.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T06:24:22.225Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "OrderHistory.cs",
+              "DocumentMoniker": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Models\\OrderHistory.cs",
+              "RelativeDocumentMoniker": "HV_NIX\\Models\\OrderHistory.cs",
+              "ToolTip": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Models\\OrderHistory.cs",
+              "RelativeToolTip": "HV_NIX\\Models\\OrderHistory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T06:24:07.11Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "CartItems.cs",
+              "DocumentMoniker": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Models\\CartItems.cs",
+              "RelativeDocumentMoniker": "HV_NIX\\Models\\CartItems.cs",
+              "ToolTip": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Models\\CartItems.cs",
+              "RelativeToolTip": "HV_NIX\\Models\\CartItems.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T06:23:07.679Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "UserInfo.cs",
+              "DocumentMoniker": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Models\\UserInfo.cs",
+              "RelativeDocumentMoniker": "HV_NIX\\Models\\UserInfo.cs",
+              "ToolTip": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Models\\UserInfo.cs",
+              "RelativeToolTip": "HV_NIX\\Models\\UserInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T06:22:00.753Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Uses.cs",
+              "DocumentMoniker": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Models\\Uses.cs",
+              "RelativeDocumentMoniker": "HV_NIX\\Models\\Uses.cs",
+              "ToolTip": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Models\\Uses.cs",
+              "RelativeToolTip": "HV_NIX\\Models\\Uses.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T06:21:31.887Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Cart.cs",
+              "DocumentMoniker": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Models\\Cart.cs",
+              "RelativeDocumentMoniker": "HV_NIX\\Models\\Cart.cs",
+              "ToolTip": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Models\\Cart.cs",
+              "RelativeToolTip": "HV_NIX\\Models\\Cart.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-20T06:22:50.809Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Web.config",
+              "DocumentMoniker": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Web.config",
+              "RelativeDocumentMoniker": "HV_NIX\\Web.config",
+              "ToolTip": "D:\\N\u0102M 2\\L\u1EACP TR\u00CCNH WEB\\D\u1EF0 \u00C1N CU\u1ED0I K\u1EF2 WEB\\B\u00C0I N\u1ED8P\\HV_NIX\\HV_NIX\\Web.config",
+              "RelativeToolTip": "HV_NIX\\Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-11-20T06:26:14.586Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

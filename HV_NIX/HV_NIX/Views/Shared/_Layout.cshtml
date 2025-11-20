@@ -1,0 +1,329 @@
+﻿@* ==============================
+    /Views/Shared/_Layout.cshtml
+    Layout chính cho toàn trang HAVENIX
+    ============================== *@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@(ViewBag.Title ?? "HAVENIX") - HAVENIX</title>
+    <!-- Font Awesome (icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+    <!-- CSS chung -->
+    <link rel="stylesheet" href="~/Content/style.css" />
+    @RenderSection("Head", required: false)
+</head>
+<body>
+    <!-- 🔹 HEADER -->
+    <header>
+        <div class="container topbar">
+            <div class="brand-name">
+                <h1><a href="@Url.Action("Index", "Home")">HAVENIX</a></h1>
+            </div>
+            <nav>
+                <a href="@Url.Action("Index", "Home")">TRANG CHỦ</a>
+                <div class="dropdown-wrapper">
+                    <a href="javascript:void(0)" class="menu-link dropdown-toggle">
+                        SẢN PHẨM <i class="fa-solid fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="@Url.Action("Index", "Product")">Xem tất cả</a></li>
+                        <li class="dropdown-divider"></li>
+                        <li><a href="@Url.Action("Category", "Product", new { id = 1 })">Áo Thun</a></li>
+                        <li><a href="@Url.Action("Category", "Product", new { id = 2 })">Áo Khoác</a></li>
+                        <li><a href="@Url.Action("Category", "Product", new { id = 3 })">Quần Dài</a></li>
+                    </ul>
+                </div>
+
+                <!-- 🔹 Biểu tượng tài khoản -->
+                <div class="account-icon" title="Tài khoản của bạn">
+                    @if (Session["UserID"] == null)
+                    {
+                        <!-- Nếu chưa đăng nhập -->
+                        <a href="@Url.Action("Login", "Account")" aria-label="ĐĂNG NHẬP">
+                            <i class="fa-regular fa-user"></i> <span>ĐĂNG NHẬP</span>
+                        </a>
+                    }
+                    else
+                    {
+                        <!-- Nếu đã đăng nhập -->
+                        <a href="@Url.Action("MyProfile", "Account")" aria-label="Xem thông tin cá nhân">
+                            <i class="fa-solid fa-user-check"></i>
+                            <span>@Session["UserName"]</span>
+                        </a>
+                    }
+                </div>
+                <!-- 🔹 Giỏ hàng -->
+                <div class="cart-icon" id="cartIcon" title="Xem giỏ hàng">
+                    <a href='@Url.Action("Index", "Cart")' aria-label="Xem giỏ hàng">
+                        <svg width="24" height="24" viewBox="0 0 19 23" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 22.985V5.995L2 6v.03l17-.014v16.968H0zm17-15H2v13h15v-13zm-5-2.882c0-2.04-.493-3.203-2.5-3.203-2 0-2.5 1.164-2.5 3.203v.912H5V4.647C5 1.19 7.274 0 9.5 0 11.517 0 14 1.354 14 4.647v1.368h-2v-.912z" />
+                        </svg>
+                        <span id="cartCount">0</span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- 🔹 MAIN CONTENT -->
+    <main role="main">
+        @RenderBody()
+    </main>
+    <!-- ==================== THÔNG TIN & CHÍNH SÁCH ==================== -->
+    <section class="info-policy">
+        <div class="container-info">
+            <!-- Cột trái -->
+            <div class="info-left">
+                <h3>THÔNG TIN</h3>
+                <ul>
+                    <li><a href="@Url.Action("ReturnPolicy", "Home")">Chính sách đổi trả</a></li>
+                    <li><a href="@Url.Action("ShippingPolicy", "Home")">Chính sách vận chuyển</a></li>
+                    <li><a href="@Url.Action("InspectionPolicy", "Home")">Chính sách kiểm hàng</a></li>
+                    <li><a href="@Url.Action("PrivacyPolicy", "Home")">Chính sách bảo mật</a></li>
+                    <li><a href="@Url.Action("PaymentPolicy", "Home")">Chính sách thanh toán</a></li>
+                </ul>
+            </div>
+            <!-- Cột phải -->
+            <div class="info-right">
+                <h3>THÔNG TIN LIÊN HỆ</h3>
+                <ul>
+                    <li><i class="fa-solid fa-location-dot"></i> CÔNG TY CỔ PHẦN HAVENIX</li>
+                    <li><i class="fa-solid fa-phone"></i> 037 905 2767 </li>
+                    <li><i class="fa-solid fa-envelope"></i> havenix_store@gmail.com</li>
+                </ul>
+                <!-- GOOGLE MAP CLICKABLE -->
+                <div class="map-box" style="margin-top: 15px;">
+                    <a href="https://maps.app.goo.gl/Zt4TeSMb8MmuAWnw6" target="_blank" style="display:block;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.3030154829476!2d106.599472994658!3d10.864541850768179!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752b088de30f3b%3A0xd2140740d360f705!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBOZ2_huqFpIG5n4buvIC0gVGluIGjhu41jIFRow6BuaCBwaOG7kSBI4buTIENow60gTWluaCAoSFVGTElUKSBDxqEgc-G7nyBIw7NjIE3DtG4!5e0!3m2!1svi!2s!4v1763181865233!5m2!1svi!2s"
+                                width="100%"
+                                height="250"
+                                style="border:0; border-radius:12px; box-shadow:0 4px 18px rgba(0,0,0,0.15);"
+                                allowfullscreen=""
+                                loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 🔹 SOCIAL MEDIA -->
+    <div class="social-media">
+        <a href="https://www.facebook.com/profile.php?id=100092846915761"
+           class="social-btn facebook" target="_blank" rel="noopener" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/whenever.atelier/"
+           class="social-btn instagram" target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+        </a>
+    </div>
+    <!-- 🔹 NÚT LÊN ĐẦU TRANG -->
+    <button id="backToTop" aria-label="Lên đầu trang">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+    <!-- 🔹 FOOTER -->
+    <footer>
+        © 2025 HAVENIX — All rights reserved | Thiết kế bởi <strong>Nhóm 4</strong>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            /* ============================
+               🆙 Nút quay lại đầu trang
+            ============================= */
+            const backToTop = document.getElementById("backToTop");
+
+            if (backToTop) {
+                window.addEventListener("scroll", () => {
+                    backToTop.style.display = window.scrollY > 300 ? "flex" : "none";
+                });
+
+                backToTop.addEventListener("click", () => {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                });
+            }
+
+            /* ============================
+               🛒 Hiển thị số lượng giỏ hàng
+            ============================= */
+            fetch('/Cart/GetCartCount')
+                .then(res => res.json())
+                .then(data => {
+                    const cartCount = document.getElementById("cartCount");
+                    if (cartCount) {
+                        cartCount.textContent = data.totalItems || 0;
+
+                        if (data.totalItems > 0) {
+                            cartCount.style.background = "#e53935";
+                            cartCount.style.color = "white";
+                            cartCount.style.borderRadius = "50%";
+                            cartCount.style.padding = "2px 6px";
+                            cartCount.style.fontSize = "12px";
+                            cartCount.style.position = "absolute";
+                            cartCount.style.top = "-8px";
+                            cartCount.style.right = "-8px";
+                            cartCount.style.minWidth = "18px";
+                            cartCount.style.textAlign = "center";
+                        }
+                    }
+                })
+                .catch(err => console.error("⚠️ Lỗi khi lấy số lượng giỏ hàng:", err));
+
+            /* ============================
+               🔽 Dropdown Menu (Sản phẩm)
+            ============================= */
+            const dropdownToggle = document.querySelector(".dropdown-toggle");
+            const dropdownMenu = document.querySelector(".dropdown-menu");
+            const dropdownWrapper = document.querySelector(".dropdown-wrapper");
+
+            if (dropdownToggle && dropdownMenu) {
+                console.log("✅ Dropdown đã tìm thấy!");
+
+                // Click vào "Sản phẩm" để toggle
+                dropdownToggle.addEventListener("click", function (e) {
+                    e.preventDefault(); // Ngăn chuyển trang
+                    e.stopPropagation();
+
+                    const isShowing = dropdownMenu.classList.contains("show");
+
+                    if (isShowing) {
+                        dropdownMenu.classList.remove("show");
+                        dropdownToggle.classList.remove("active");
+                    } else {
+                        dropdownMenu.classList.add("show");
+                        dropdownToggle.classList.add("active");
+                    }
+
+                    console.log("Dropdown show:", !isShowing);
+                });
+
+                // Click ra ngoài để đóng
+                document.addEventListener("click", function (e) {
+                    if (dropdownWrapper && !dropdownWrapper.contains(e.target)) {
+                        dropdownMenu.classList.remove("show");
+                        dropdownToggle.classList.remove("active");
+                    }
+                });
+
+                // Click vào items trong menu - không đóng dropdown (có thể bỏ dòng này nếu muốn đóng khi chọn)
+                dropdownMenu.addEventListener("click", function (e) {
+                    // Nếu click vào link, cho phép chuyển trang
+                    if (e.target.tagName === "A") {
+                        // Không preventDefault - cho phép link hoạt động
+                        return;
+                    }
+                    e.stopPropagation();
+                });
+            } else {
+                console.error("❌ Không tìm thấy dropdown elements!");
+            }
+
+        });
+    </script>
+    @RenderSection("Scripts", required: false)
+    <!-- 💅 CSS tinh chỉnh cho phần Thông tin & Chính sách -->
+    <style>
+        .info-policy {
+            background: #f9f9f9;
+            padding: 50px 20px;
+            border-top: 2px solid #eee;
+            margin-top: 60px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .container-info {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            color: #333;
+        }
+
+        .info-left, .info-right {
+            flex: 1 1 45%;
+        }
+
+        .info-policy h3 {
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #111;
+            letter-spacing: 1px;
+        }
+
+        .info-policy ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .info-policy li {
+            margin-bottom: 12px;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #444;
+        }
+
+        .info-policy a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+            .info-policy a:hover {
+                color: #e91e63;
+            }
+
+        .info-right i {
+            color: #e91e63;
+            width: 20px;
+        }
+
+        @@media (max-width: 768px) {
+            .container-info {
+                flex-direction: column;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .info-right i {
+                display: none;
+            }
+        }
+        /* CSS cho header trên mobile */
+        @@media (max-width: 768px) {
+            .account-icon {
+                display: inline-flex;
+                align-items: center;
+                margin-right: 15px;
+            }
+
+                .account-icon a {
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                    color: #111;
+                    text-decoration: none;
+                    font-weight: 600;
+                    transition: color 0.3s ease;
+                }
+
+                    .account-icon a:hover {
+                        color: #e91e63;
+                    }
+
+                .account-icon i {
+                    font-size: 18px;
+                }
+        }
+    </style>
+</body>
+</html>

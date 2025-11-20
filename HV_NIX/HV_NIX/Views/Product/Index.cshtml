@@ -1,0 +1,193 @@
+﻿@model IEnumerable<HV_NIX.Models.Products>
+
+@{
+    ViewBag.Title = "Sản phẩm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main class="container">
+    <h2 class="title">SẢN PHẨM NỔI BẬT</h2>
+
+    <div class="product-grid">
+        @if (Model != null && Model.Any())
+        {
+            foreach (var item in Model)
+            {
+                var imgPath = string.IsNullOrEmpty(item.Thumbnail)
+                    ? Url.Content("~/Content/Images/no-image.png")
+                    : (item.Thumbnail.StartsWith("/Content/Images/Products/", StringComparison.OrdinalIgnoreCase)
+                        ? Url.Content(item.Thumbnail)
+                        : Url.Content("~/Content/Images/Products/" + item.Thumbnail));
+
+                <div class="card" onclick="viewProduct(@item.ProductID)">
+                    <div class="thumb">
+                        <img src="@imgPath"
+                             alt="@item.ProductName"
+                             class="img-fluid"
+                             onerror="this.onerror=null;this.src='@Url.Content("~/Content/Images/no-image.png")';" />
+                    </div>
+                    <div class="card-body">
+                        <div class="title">@item.ProductName</div>
+                        <div class="price">@string.Format("{0:N0}₫", item.Price)</div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <p style="text-align:center;">Không có sản phẩm nào trong cơ sở dữ liệu.</p>
+        }
+    </div>
+
+    @if (ViewBag.TotalPages > 1)
+    {
+        <div class="pagination">
+            @for (int i = 1; i <= ViewBag.TotalPages; i++)
+            {
+                if (i == ViewBag.CurrentPage)
+                {
+                    <button class="active">@i</button>
+                }
+                else
+                {
+                    <button onclick="goToPage(@i)">@i</button>
+                }
+            }
+        </div>
+    }
+</main>
+
+@section Scripts {
+    <script>
+        function viewProduct(id) {
+            window.location.href = '/Product/Details/' + id;
+        }
+
+        function goToPage(page) {
+            const url = new URL(window.location.href);
+            url.searchParams.set("page", page);
+            window.location.href = url.toString();
+        }
+    </script>
+}
+
+<style>
+    .container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 40px 20px;
+    }
+
+    .title {
+        text-align: center;
+        font-size: 28px;
+        font-weight: 600;
+        margin-bottom: 40px;
+        color: #111;
+    }
+
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+        justify-items: center;
+    }
+
+    .card {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        width: 100%;
+        max-width: 280px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+    .thumb {
+        width: 100%;
+        height: 280px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #fafafa;
+        border-bottom: 1px solid #eee;
+    }
+
+        .thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+    .card:hover .thumb img {
+        transform: scale(1.05);
+    }
+
+    .card-body {
+        padding: 15px;
+        text-align: center;
+    }
+
+        .card-body .title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            color: #333;
+            line-height: 1.4;
+            min-height: 40px;
+        }
+
+    .price {
+        color: #e91e63;
+        font-weight: bold;
+        font-size: 17px;
+    }
+
+    .pagination {
+        text-align: center;
+        margin-top: 40px;
+    }
+
+        .pagination button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            margin: 0 5px;
+            cursor: pointer;
+            background-color: #eee;
+            transition: 0.3s;
+            font-weight: 500;
+        }
+
+            .pagination button.active,
+            .pagination button:hover {
+                background-color: #222;
+                color: #fff;
+            }
+
+    @@media (max-width: 768px) {
+        .thumb {
+            height: 220px;
+        }
+
+        .card-body .title {
+            font-size: 14px;
+        }
+
+        .price {
+            font-size: 15px;
+        }
+    }
+</style>

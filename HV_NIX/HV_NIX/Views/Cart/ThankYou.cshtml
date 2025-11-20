@@ -1,0 +1,144 @@
+﻿@model IEnumerable<HV_NIX.Controllers.ThankYouItem>
+
+@{
+    ViewBag.Title = "Cảm ơn bạn đã đặt hàng!";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var order = ViewBag.Order; // chứa Orders
+}
+
+<main class="thankyou-container">
+    <h1>🎉 Cảm ơn bạn đã đặt hàng!</h1>
+
+    <p>Mã đơn hàng của bạn: <strong>#@order.OrderID</strong></p>
+    <p>Ngày đặt: @order.OrderDate.ToString("dd/MM/yyyy HH:mm")</p>
+    <p>Tổng tiền: <strong>@order.Total.ToString("N0")₫</strong></p>
+
+    <h3>🛍️ Sản phẩm đã mua</h3>
+
+    <table class="thankyou-table">
+        <thead>
+            <tr>
+                <th>Hình ảnh</th>
+                <th>Tên sản phẩm</th>
+                <th>Số lượng</th>
+                <th>Giá</th>
+                <th>Tạm tính</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                var imagePath = string.IsNullOrEmpty(item.Thumbnail)
+                    ? Url.Content("~/Content/Images/no-image.png")
+                    : Url.Content("~/Content/Images/Products/" + item.Thumbnail);
+
+                <tr>
+                    <td>
+                        <img src="@imagePath"
+                             width="70"
+                             alt="@item.ProductName"
+                             onerror="this.src='@Url.Content("~/Content/Images/no-image.png")'" />
+                    </td>
+                    <td>@item.ProductName</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.Price.ToString("N0")₫</td>
+                    <td>@(item.Price * item.Quantity).ToString("N0")₫</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="thankyou-actions">
+        <a href="@Url.Action("Index", "Home")" class="btn-home">🏠 Quay về trang chủ</a>
+        <a href="@Url.Action("MyProfile", "Account")" class="btn-profile">👤 Xem thông tin cá nhân</a>
+    </div>
+</main>
+
+<style>
+    .thankyou-container {
+        max-width: 900px;
+        margin: 60px auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        text-align: center;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    h1 {
+        color: #28a745;
+        font-size: 30px;
+        margin-bottom: 15px;
+    }
+
+    h3 {
+        margin-top: 30px;
+        margin-bottom: 15px;
+        color: #333;
+    }
+
+    .thankyou-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+        .thankyou-table th,
+        .thankyou-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .thankyou-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #495057;
+        }
+
+        .thankyou-table img {
+            border-radius: 8px;
+            object-fit: cover;
+            height: 70px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+    .thankyou-actions {
+        margin-top: 30px;
+    }
+
+    .btn-home,
+    .btn-profile {
+        display: inline-block;
+        margin: 15px 8px;
+        padding: 12px 25px;
+        border-radius: 8px;
+        text-decoration: none;
+        color: #fff;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .btn-home {
+        background: #007bff;
+    }
+
+        .btn-home:hover {
+            background: #0069d9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,123,255,0.3);
+        }
+
+    .btn-profile {
+        background: #28a745;
+    }
+
+        .btn-profile:hover {
+            background: #218838;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(40,167,69,0.3);
+        }
+</style>

@@ -1,0 +1,160 @@
+﻿@model List<HV_NIX.Controllers.CartItem>
+
+@{
+    ViewBag.Title = "Thanh toán đơn hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/cart.css" />
+
+<main class="checkout-container">
+    <h1 class="checkout-title">🧾 Xác nhận đơn hàng</h1>
+
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">@TempData["Error"]</div>
+    }
+
+    <section class="checkout-info">
+        <h3>📦 Thông tin người nhận</h3>
+        <div class="info-box">
+            <p><strong>Họ và tên:</strong> @Session["UserName"]</p>
+            <p><strong>Phương thức thanh toán:</strong> @(Session["PaymentMethod"] ?? "Thanh toán tiền mặt")</p>
+        </div>
+    </section>
+
+    <section class="checkout-products">
+        <h3>🛍️ Sản phẩm trong giỏ hàng</h3>
+
+        <table class="checkout-table">
+            <thead>
+                <tr>
+                    <th>Sản phẩm</th>
+                    <th>Giá</th>
+                    <th>Số lượng</th>
+                    <th>Tạm tính</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    decimal subtotal = item.Price * item.Quantity;
+
+                    <tr>
+                        <td>@item.ProductName (Size @item.Size)</td>
+                        <td>@item.Price.ToString("N0")₫</td>
+                        <td>@item.Quantity</td>
+                        <td>@subtotal.ToString("N0")₫</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </section>
+
+    <section class="checkout-summary">
+        <h3>Tổng kết đơn hàng</h3>
+
+        <div class="summary-row">
+            <span>Tổng tiền:</span>
+            <span class="total">@ViewBag.TotalAmount.ToString("N0")₫</span>
+        </div>
+
+        <!-- Xác nhận thanh toán -->
+        <form method="post" action="@Url.Action("CheckoutConfirm", "Cart")">
+            <button type="submit" class="btn-confirm">✅ Xác nhận đặt hàng</button>
+        </form>
+
+        <a href="@Url.Action("Index", "Cart")" class="btn-back">← Quay lại giỏ hàng</a>
+    </section>
+</main>
+
+<style>
+    .checkout-container {
+        max-width: 900px;
+        margin: 50px auto;
+        background: #fff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .checkout-title {
+        text-align: center;
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 25px;
+    }
+
+    .info-box {
+        background: #f8f9fa;
+        border-radius: 10px;
+        padding: 20px;
+        line-height: 1.8;
+    }
+
+    .checkout-products table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    .checkout-products th,
+    .checkout-products td {
+        border: 1px solid #eee;
+        padding: 12px;
+        text-align: center;
+    }
+
+    .checkout-products th {
+        background: #f5f5f5;
+        font-weight: 600;
+    }
+
+    .checkout-summary {
+        margin-top: 40px;
+        text-align: right;
+    }
+
+    .summary-row {
+        display: flex;
+        justify-content: space-between;
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        background: #f5f5f5;
+        padding: 12px 15px;
+        border-radius: 8px;
+    }
+
+    .btn-confirm {
+        background: #28a745;
+        color: #fff;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+        .btn-confirm:hover {
+            background: #218838;
+        }
+
+    .btn-back {
+        display: inline-block;
+        margin-left: 10px;
+        padding: 10px 20px;
+        border-radius: 8px;
+        background: #6c757d;
+        color: white;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+        .btn-back:hover {
+            background: #5a6268;
+        }
+</style>

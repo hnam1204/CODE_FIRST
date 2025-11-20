@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Trang chủ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="hero fade-in">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>CHÀO MỪNG ĐẾN VỚI<br />HAVENIX</h1>
+        <p>Bộ sưu tập mới — thời trang & phụ kiện thiết kế độc quyền</p>
+    </div>
+</section>
+
+<section class="intro">
+    <div class="intro-container slide-up">
+        <video src="~/Content/Images/Products/vd.mp4" alt="Video_Havenix" autoplay muted loop></video>
+        <div class="intro-text">
+            <h2>Phong cách & Đẳng cấp</h2>
+            <p>
+                HAVENIX mang đến những thiết kế độc quyền, hiện đại và tinh tế, phù hợp với mọi phong cách.
+                Mỗi sản phẩm được tạo nên từ chất liệu cao cấp và bàn tay khéo léo của các nhà thiết kế hàng đầu Việt Nam.
+            </p>
+            @Html.ActionLink("Khám phá ngay", "Index", "Product", null, new { @class = "btn-outline" })
+        </div>
+    </div>
+</section>
