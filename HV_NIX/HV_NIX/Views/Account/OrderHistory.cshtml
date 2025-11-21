@@ -1,0 +1,90 @@
+﻿@model List<HV_NIX.Models.Orders>
+@{
+    ViewBag.Title = "Lịch sử đơn hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main class="account-container">
+    <h2>📦 Lịch sử đơn hàng</h2>
+
+    @if (!Model.Any())
+    {
+        <p>Bạn chưa có đơn hàng nào.</p>
+        return;
+    }
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Mã đơn</th>
+                <th>Ngày</th>
+                <th>Tổng</th>
+                <th>Trạng thái</th>
+                <th>Xem</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var o in Model)
+            {
+                <tr>
+                    <td>#@o.OrderID</td>
+                    <td>@o.OrderDate.ToString("dd/MM/yyyy HH:mm")</td>
+                    <td>@o.Total.ToString("N0")₫</td>
+                    <td>@o.Status</td>
+                    <td>
+                        <button class="btn btn-info btn-detail" data-id="@o.OrderID">Chi tiết</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</main>
+
+<div id="detailModal" class="modal fade" tabindex="-1"></div>
+
+<script>
+    $(".btn-detail").click(function () {
+        var id = $(this).data("id");
+
+        $.get("/Account/GetOrderDetail", { orderId: id }, function (res) {
+            if (res.error) {
+                alert(res.error);
+                return;
+            }
+
+            var html = `
+                <div class='modal-dialog'>
+                    <div class='modal-content'>
+                        <div class='modal-header'>
+                            <h4>Chi tiết đơn #${res.OrderID}</h4>
+                        </div>
+                        <div class='modal-body'>
+                            <p>Ngày: ${res.Date}</p>
+                            <p>Tổng: ${res.Total.toLocaleString()}₫</p>
+                            <hr />
+                            <h5>Sản phẩm</h5>
+            `;
+
+            res.Details.forEach(d => {
+                html += `
+                    <div>
+                        <strong>${d.ProductName}</strong><br/>
+                        SL: ${d.Quantity} - Giá: ${d.Price.toLocaleString()}₫
+                    </div>
+                    <hr/>
+                `;
+            });
+
+            html += `
+                        </div>
+                        <div class='modal-footer'>
+                            <button class='btn btn-secondary' data-dismiss='modal'>Đóng</button>
+                        </div>
+                    </div>
+                </div>`;
+
+            $("#detailModal").html(html).modal("show");
+        });
+    });
+</script>

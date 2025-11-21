@@ -1,0 +1,100 @@
+﻿@* Views/Account/_AccountSidebar.cshtml *@
+<link rel="stylesheet" href="~/Content/account.css" />
+
+<div class="sidebar">
+    <div class="sidebar-header">
+        <img src="~/Image/user.png" />
+        <div>
+            <h4>@Session["UserName"]</h4>
+            <span>Thành viên HAVENIX</span>
+        </div>
+    </div>
+
+    <ul class="sidebar-menu">
+        <li><a href="@Url.Action("MyProfile","Account")">Hồ sơ cá nhân</a></li>
+
+        <li><a href="@Url.Action("Index","Shipping")">Địa chỉ giao hàng</a></li>
+
+        <li><a href="@Url.Action("Index","Payment")">Phương thức thanh toán</a></li>
+
+        <li><a href="@Url.Action("MyReviews","Account")">Đánh giá của tôi</a></li>
+
+        <li><a href="@Url.Action("Notifications","Account")">Thông báo</a></li>
+
+        <li><a href="@Url.Action("ActivityLog","Account")">Nhật ký hoạt động</a></li>
+
+        <li><a href="@Url.Action("OrderHistory","Account")">Lịch sử đơn hàng</a></li>
+
+        <li class="logout">
+            <a href="@Url.Action("Logout","Account")">🚪 Đăng xuất</a>
+        </li>
+    </ul>
+</div>
+
+<style>
+    .account-main {
+        display: flex;
+        gap: 30px;
+        max-width: 1100px;
+        margin: 30px auto;
+    }
+
+    .sidebar {
+        width: 260px;
+        background: #fff;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+    }
+
+    .sidebar-header {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #eee;
+    }
+
+        .sidebar-header img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+        }
+
+        .sidebar-header h4 {
+            margin: 0;
+            font-size: 17px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .sidebar-header span {
+            font-size: 13px;
+            color: #777;
+        }
+
+    .sidebar-menu {
+        list-style: none;
+        padding: 0;
+        margin-top: 20px;
+    }
+
+        .sidebar-menu li a {
+            display: block;
+            padding: 12px 10px;
+            font-size: 15px;
+            color: #333;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: 0.25s;
+        }
+
+            .sidebar-menu li a:hover {
+                background: #e0f7fa;
+                color: #006064;
+            }
+
+        .sidebar-menu .logout a {
+            color: #d32f2f !important;
+        }
+</style>

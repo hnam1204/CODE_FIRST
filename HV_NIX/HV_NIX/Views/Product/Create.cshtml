@@ -20,14 +20,14 @@
         <div class="form-group">
             <label>Danh mục</label>
             @Html.DropDownListFor(m => m.CategoryID,
-                new SelectList(ViewBag.Categories, "categoryid", "categoryname"),
+                new SelectList(ViewBag.Categories, "CategoryID", "CategoryName"),
                 "-- Chọn danh mục --",
                 new { @class = "form-control" })
         </div>
 
         <div class="form-group">
             <label>Giá sản phẩm</label>
-            @Html.TextBoxFor(m => m.Price, new { @class = "form-control", type = "number", step = "0.01" })
+            @Html.TextBoxFor(m => m.Price, new { @class = "form-control", type = "number", step = "0.01", placeholder = "Ví dụ: 199000" })
         </div>
 
         <div class="form-group">

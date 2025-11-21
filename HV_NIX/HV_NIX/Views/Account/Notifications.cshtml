@@ -1,0 +1,137 @@
+﻿@model List<HV_NIX.Models.Notification>
+@{
+    ViewBag.Title = "Thông báo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="~/Content/account.css" />
+
+<main class="account-main">
+
+    @Html.Partial("_AccountSidebar")
+
+    <section class="account-content">
+        <h2>🔔 Thông báo</h2>
+
+        @if (!Model.Any())
+        {
+            <p>Không có thông báo nào.</p>
+        }
+        else
+        {
+            foreach (var n in Model)
+            {
+                <div class="noti-card @(n.IsRead ? "" : "unread")">
+                    <strong>@n.Title</strong>
+                    <p>@n.Message</p>
+                    <small>@n.CreatedAt.ToString("dd/MM/yyyy HH:mm")</small>
+
+                    @if (!n.IsRead)
+                    {
+                        <a href="@Url.Action("MarkRead", "Account", new { id = n.NotificationID })"
+                           class="btn-small">Đánh dấu đã đọc</a>
+                    }
+                </div>
+            }
+        }
+    </section>
+
+</main>
+<style>
+    /* ==================================================
+   THÔNG BÁO - THÊM VÀO account.css
+================================================== */
+
+/* Card thông báo */
+.noti-card {
+    background: #ffffff;
+    border: 2px solid #b2ebf2;
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s;
+    position: relative;
+}
+
+.noti-card:hover {
+    border-color: #00acc1;
+    box-shadow: 0 10px 30px rgba(0,172,193,0.15);
+}
+
+/* Thông báo chưa đọc */
+.noti-card.unread {
+    background: #e0f7fa;
+    border-color: #00acc1;
+    position: relative;
+}
+
+.noti-card.unread::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: -10px;
+    width: 12px;
+    height: 12px;
+    background: #00acc1;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0,172,193,0.6);
+}
+
+/* Tiêu đề thông báo */
+.noti-card strong {
+    display: block;
+    font-size: 17px;
+    color: #006064;
+    margin-bottom: 8px;
+}
+
+/* Nội dung thông báo */
+.noti-card p {
+    margin: 0 0 12px 0;
+    color: #333;
+    line-height: 1.6;
+    font-size: 15.5px;
+}
+
+/* Thời gian */
+.noti-card small {
+    display: block;
+    color: #777;
+    font-size: 13.5px;
+    margin-bottom: 12px;
+}
+
+/* Nút "Đánh dấu đã đọc" */
+.noti-card .btn-small {
+    padding: 7px 16px;
+    background: #00acc1;
+    color: white;
+    font-size: 13.5px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.noti-card .btn-small:hover {
+    background: #00838f;
+}
+
+/* Khi không có thông báo */
+.account-content > p {
+    text-align: center;
+    color: #777;
+    font-size: 16px;
+    margin-top: 50px;
+}
+
+/* Responsive */
+@@media (max-width: 768px) {
+    .noti-card.unread::before {
+        left: 16px;
+        top: 16px;
+    }
+    .noti-card strong {
+        font-size: 16.5px;
+    }
+}
+</style>

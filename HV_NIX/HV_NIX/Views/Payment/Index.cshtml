@@ -1,0 +1,288 @@
+﻿@model List<HV_NIX.Models.PaymentMethod>
+@{
+    ViewBag.Title = "Phương thức thanh toán";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="~/Content/account.css" />
+
+<main class="account-main">
+
+    @Html.Partial("_AccountSidebar")
+
+    <section class="account-content">
+        <h2>💳 Phương thức thanh toán</h2>
+
+        <button class="btn-primary" id="btnAdd" style="margin-bottom:25px">
+            ➕ Thêm phương thức thanh toán
+        </button>
+
+        @if (!Model.Any())
+        {
+            <p>⚠️ Bạn chưa thêm phương thức thanh toán nào.</p>
+        }
+        else
+        {
+            foreach (var p in Model)
+            {
+                <div class="address-card @(p.IsDefault ? "default" : "")">
+
+                    <div class="address-info">
+                        <strong>@p.Provider</strong>
+                        <span> (@p.MethodType) </span>
+
+                        <br />
+                        Số TK: <strong>@p.AccountNumber</strong>
+
+                        @if (p.IsDefault)
+                        {
+                            <span class="tag-default">Mặc định</span>
+                        }
+                    </div>
+
+                    <div class="address-actions">
+                        @if (!p.IsDefault)
+                        {
+                            <a href="@Url.Action("SetDefault", "Payment", new { id = p.MethodID })"
+                               class="btn-small">Đặt mặc định</a>
+                        }
+
+                        <a href="@Url.Action("Delete", "Payment", new { id = p.MethodID })"
+                           onclick="return confirm('Xóa phương thức này?')"
+                           class="btn-small danger">Xóa</a>
+                    </div>
+
+                </div>
+            }
+        }
+    </section>
+
+</main>
+
+
+<!-- MODAL THÊM -->
+<div id="modalAdd" class="modal-add">
+    <div class="modal-content">
+        <h3>➕ Thêm phương thức thanh toán</h3>
+
+        <form method="post" action="@Url.Action("Add", "Payment")">
+
+            <label>Loại phương thức</label>
+            <select name="methodType" class="form-control">
+                <option value="Bank">🏦 Ngân hàng</option>
+                <option value="MoMo">📱 Ví MoMo</option>
+                <option value="Cash">💵 Thanh toán tiền mặt</option>
+            </select>
+
+            <label>Nhà cung cấp / Ngân hàng</label>
+            <input name="provider" class="form-control" required />
+
+            <label>Số tài khoản / Ví</label>
+            <input name="accountNumber" class="form-control" required />
+
+            <label style="margin-top:15px;">
+                <input type="checkbox" name="isDefault" /> Đặt làm mặc định
+            </label>
+
+            <button class="btn-primary" style="margin-top:25px;">Lưu</button>
+        </form>
+
+        <button class="btn-close" id="closeModal">Đóng</button>
+    </div>
+</div>
+
+<script>
+    document.getElementById("btnAdd").onclick = () => {
+        document.getElementById("modalAdd").style.display = "flex";
+    };
+    document.getElementById("closeModal").onclick = () => {
+        document.getElementById("modalAdd").style.display = "none";
+    };
+</script>
+<style>
+    /* ==================================================
+   PHƯƠNG THỨC THANH TOÁN - THÊM VÀO account.css
+   (Tái sử dụng 95% CSS của trang Địa chỉ giao hàng)
+================================================== */
+
+/* Nút "Thêm phương thức thanh toán" */
+#btnAdd {
+    display: block;
+    margin-left: auto;
+    margin-bottom: 28px;
+    padding: 12px 28px;
+    background: #00acc1;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 15.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#btnAdd:hover {
+    background: #00838f;
+}
+
+/* Card phương thức thanh toán (dùng lại class address-card) */
+.address-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8fdfe;
+    border: 2px solid #b2ebf2;
+    border-radius: 16px;
+    padding: 22px 24px;
+    margin-bottom: 16px;
+    transition: all 0.3s;
+}
+
+.address-card:hover {
+    box-shadow: 0 8px 28px rgba(0,172,193,0.18);
+}
+
+.address-card.default {
+    border-color: #00acc1;
+    background: #e0f7fa;
+    position: relative;
+}
+
+.address-card.default::after {
+    content: "Mặc định";
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: #00acc1;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 20px;
+}
+
+/* Thông tin thanh toán */
+.address-info strong {
+    font-size: 17px;
+    color: #006064;
+}
+
+.address-info span {
+    color: #555;
+    font-size: 15px;
+}
+
+/* Tag mặc định (nếu dùng span) */
+.tag-default {
+    display: inline-block;
+    margin-left: 10px;
+    background: #00acc1;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+}
+
+/* Nút hành động nhỏ */
+.address-actions .btn-small {
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-left: 8px;
+}
+
+.address-actions .btn-small:first-child { margin-left: 0; }
+
+.address-actions .btn-small {
+    background: #eceff1;
+    color: #006064;
+}
+
+.address-actions .btn-small:hover {
+    background: #b2ebf2;
+}
+
+.address-actions .btn-small.danger {
+    background: #ff5252;
+    color: white;
+}
+
+.address-actions .btn-small.danger:hover {
+    background: #e53935;
+}
+
+/* Select trong modal */
+select.form-control {
+    width: 100%;
+    padding: 15px 16px;
+    border: 1.5px solid #b2ebf2;
+    border-radius: 12px;
+    background: #f8fdfe;
+    font-size: 16px;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300acc1'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    background-size: 16px;
+}
+
+/* Modal thêm phương thức (dùng lại hoàn toàn class modal-add) */
+.modal-add {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(6px);
+}
+
+.modal-add[style*="flex"],
+.modal-add.active {
+    display: flex !important;
+}
+
+.modal-content h3 {
+    margin: 0 0 28px;
+    text-align: center;
+    font-size: 24px;
+    color: #006064;
+}
+
+/* Nút đóng */
+.btn-close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 30px;
+    color: #aaa;
+    cursor: pointer;
+    padding: 0;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+}
+
+.btn-close:hover { color: #333; }
+
+/* Responsive */
+@@media (max-width: 768px) {
+    .address-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    .address-actions {
+        width: 100%;
+    }
+    .address-actions .btn-small {
+        flex: 1;
+        text-align: center;
+    }
+}
+</style>

@@ -127,9 +127,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\ShippingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -145,16 +148,61 @@
     <Compile Include="Migrations\202511200727167_Init1.Designer.cs">
       <DependentUpon>202511200727167_Init1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202511201614415_SeedCategories.cs" />
+    <Compile Include="Migrations\202511201614415_SeedCategories.Designer.cs">
+      <DependentUpon>202511201614415_SeedCategories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202511201649083_AddReviewsFixed.cs" />
+    <Compile Include="Migrations\202511201649083_AddReviewsFixed.Designer.cs">
+      <DependentUpon>202511201649083_AddReviewsFixed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202511201734485_Create_PaymentMethod.cs" />
+    <Compile Include="Migrations\202511201734485_Create_PaymentMethod.Designer.cs">
+      <DependentUpon>202511201734485_Create_PaymentMethod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202511201735353_Add_ShippingAddress.cs" />
+    <Compile Include="Migrations\202511201735353_Add_ShippingAddress.Designer.cs">
+      <DependentUpon>202511201735353_Add_ShippingAddress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202511201804182_Add_UserModules.cs" />
+    <Compile Include="Migrations\202511201804182_Add_UserModules.Designer.cs">
+      <DependentUpon>202511201804182_Add_UserModules.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202511201813452_SyncModels.cs" />
+    <Compile Include="Migrations\202511201813452_SyncModels.Designer.cs">
+      <DependentUpon>202511201813452_SyncModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202511201859551_Add_ActivityLog_Fixed.cs" />
+    <Compile Include="Migrations\202511201859551_Add_ActivityLog_Fixed.Designer.cs">
+      <DependentUpon>202511201859551_Add_ActivityLog_Fixed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202511201902145_FixModels.cs" />
+    <Compile Include="Migrations\202511201902145_FixModels.Designer.cs">
+      <DependentUpon>202511201902145_FixModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202511201904095_Fix_NotificationID.cs" />
+    <Compile Include="Migrations\202511201904095_Fix_NotificationID.Designer.cs">
+      <DependentUpon>202511201904095_Fix_NotificationID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202511201906565_Fix_NotificationID_Clean.cs" />
+    <Compile Include="Migrations\202511201906565_Fix_NotificationID_Clean.Designer.cs">
+      <DependentUpon>202511201906565_Fix_NotificationID_Clean.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ActivityLog.cs" />
     <Compile Include="Models\AppDbContext.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\CartItems.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Notification.cs" />
     <Compile Include="Models\OrderDetails.cs" />
     <Compile Include="Models\OrderHistory.cs" />
     <Compile Include="Models\Orders.cs" />
     <Compile Include="Models\PasswordReset.cs" />
+    <Compile Include="Models\PaymentMethod.cs" />
     <Compile Include="Models\Products.cs" />
+    <Compile Include="Models\Reviews.cs" />
+    <Compile Include="Models\ShippingAddress.cs" />
     <Compile Include="Models\UserInfo.cs" />
     <Compile Include="Models\Uses.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -225,6 +273,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Image\logo.jpg" />
+    <Content Include="Image\user.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -266,6 +315,17 @@
     <Content Include="Views\Cart\ThankYou.cshtml" />
     <Content Include="Views\Cart\Checkout.cshtml" />
     <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\MyProfile.cshtml" />
+    <Content Include="Views\Account\OrderHistory.cshtml" />
+    <Content Include="Views\Shipping\Index.cshtml" />
+    <Content Include="Views\Shared\_AccountSidebar.cshtml" />
+    <Content Include="Views\Payment\Index.cshtml" />
+    <Content Include="Views\Account\MyReviews.cshtml" />
+    <Content Include="Views\Account\Notifications.cshtml" />
+    <Content Include="Views\Account\ActivityLog.cshtml" />
+    <Content Include="Views\Shipping\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -306,6 +366,36 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202511200727167_Init1.resx">
       <DependentUpon>202511200727167_Init1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202511201614415_SeedCategories.resx">
+      <DependentUpon>202511201614415_SeedCategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202511201649083_AddReviewsFixed.resx">
+      <DependentUpon>202511201649083_AddReviewsFixed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202511201734485_Create_PaymentMethod.resx">
+      <DependentUpon>202511201734485_Create_PaymentMethod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202511201735353_Add_ShippingAddress.resx">
+      <DependentUpon>202511201735353_Add_ShippingAddress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202511201804182_Add_UserModules.resx">
+      <DependentUpon>202511201804182_Add_UserModules.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202511201813452_SyncModels.resx">
+      <DependentUpon>202511201813452_SyncModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202511201859551_Add_ActivityLog_Fixed.resx">
+      <DependentUpon>202511201859551_Add_ActivityLog_Fixed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202511201902145_FixModels.resx">
+      <DependentUpon>202511201902145_FixModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202511201904095_Fix_NotificationID.resx">
+      <DependentUpon>202511201904095_Fix_NotificationID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202511201906565_Fix_NotificationID_Clean.resx">
+      <DependentUpon>202511201906565_Fix_NotificationID_Clean.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

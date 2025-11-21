@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace HV_NIX.Controllers
 {
@@ -11,7 +12,9 @@ namespace HV_NIX.Controllers
     {
         private readonly AppDbContext db = new AppDbContext();
 
-        // 👉 Danh sách sản phẩm có phân trang
+        // ============================
+        // 📌 LIST SẢN PHẨM + PHÂN TRANG
+        // ============================
         public ActionResult Index(int page = 1, int pageSize = 8)
         {
             int totalProducts = db.Products.Count();
@@ -29,11 +32,13 @@ namespace HV_NIX.Controllers
             return View(products);
         }
 
-        // 👉 Trang chi tiết sản phẩm
+        // ============================
+        // 📌 CHI TIẾT SẢN PHẨM
+        // ============================
         public ActionResult Details(int id)
         {
             var product = db.Products
-                            .Include("Category")   // load luôn category
+                            .Include(p => p.Category)
                             .FirstOrDefault(p => p.ProductID == id);
 
             if (product == null)
@@ -42,16 +47,16 @@ namespace HV_NIX.Controllers
             return View(product);
         }
 
-        // 👉 Sản phẩm theo danh mục (CategoryID)
+        // ============================
+        // 📌 LỌC THEO DANH MỤC CategoryID
+        // ============================
         public ActionResult Category(int id)
         {
-            // Lấy Category đúng theo Model mới
             var category = db.Categories.FirstOrDefault(c => c.CategoryID == id);
 
             if (category == null)
                 return HttpNotFound("Danh mục không tồn tại!");
 
-            // Lọc theo CategoryID (CHUẨN Model mới)
             var products = db.Products
                              .Where(p => p.CategoryID == id)
                              .OrderBy(p => p.ProductID)
@@ -61,38 +66,42 @@ namespace HV_NIX.Controllers
 
             return View("Category", products);
         }
-        // GET: Product/Create
+
+        // ============================
+        // 📌 GET: CREATE
+        // ============================
         public ActionResult Create()
         {
             ViewBag.Categories = db.Categories.ToList();
             return View();
         }
 
-        // POST: Product/Create
+        // ============================
+        // 📌 POST: CREATE
+        // ============================
         [HttpPost]
         public ActionResult Create(Products product, HttpPostedFileBase ThumbnailFile)
         {
+            // Validate Category
+            if (product.CategoryID <= 0)
+            {
+                ModelState.AddModelError("", "Vui lòng chọn danh mục.");
+            }
+
             if (!ModelState.IsValid)
             {
                 ViewBag.Categories = db.Categories.ToList();
                 return View(product);
             }
 
+            // 📌 Upload ảnh Thumbnail
             if (ThumbnailFile != null && ThumbnailFile.ContentLength > 0)
             {
                 string fileName = Guid.NewGuid() + Path.GetExtension(ThumbnailFile.FileName);
-                string path = Server.MapPath("~/Content/Images/Products/" + fileName);
-                ThumbnailFile.SaveAs(path);
+                string savePath = Server.MapPath("~/Content/Images/Products/" + fileName);
 
+                ThumbnailFile.SaveAs(savePath);
                 product.Thumbnail = fileName;
-            }
-
-            // 🚨 Nếu CategoryID = 0 → ép lỗi
-            if (product.CategoryID <= 0)
-            {
-                ModelState.AddModelError("", "Vui lòng chọn danh mục.");
-                ViewBag.Categories = db.Categories.ToList();
-                return View(product);
             }
 
             db.Products.Add(product);

@@ -1,0 +1,40 @@
+﻿@model List<HV_NIX.Models.ActivityLog>
+@{
+    ViewBag.Title = "Nhật ký hoạt động";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="~/Content/account.css" />
+
+<main class="account-main">
+
+    @Html.Partial("_AccountSidebar")
+
+    <section class="account-content">
+        <h2>📄 Nhật ký hoạt động</h2>
+
+        @if (!Model.Any())
+        {
+            <p>Không có dữ liệu lịch sử.</p>
+        }
+        else
+        {
+            <ul class="log-list">
+                @foreach (var l in Model)
+                {
+                    <li>
+                        <strong>@l.Action</strong><br />
+                        <small>@l.Date.ToString("dd/MM/yyyy HH:mm")</small>
+                    </li>
+                }
+            </ul>
+        }
+    </section>
+
+</main>
+
+<style>
+    .log-list li {
+        padding: 15px;
+        border-bottom: 1px solid #e0f7fa;
+    }
+</style>

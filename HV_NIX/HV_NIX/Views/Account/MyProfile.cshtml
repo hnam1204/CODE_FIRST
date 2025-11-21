@@ -1,0 +1,205 @@
+﻿@model HV_NIX.Models.UserInfo
+@{
+    ViewBag.Title = "Thông tin cá nhân";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="~/Content/account.css" />
+
+<main class="account-main">
+    @Html.Partial("_AccountSidebar")
+
+    <section class="account-content">
+        <h2>Hồ sơ cá nhân</h2>
+
+        @if (TempData["Success"] != null)
+        {
+            <div class="alert alert-success">@TempData["Success"]</div>
+        }
+
+        <form method="post" action="@Url.Action("MyProfile", "Account")">
+            @Html.AntiForgeryToken()
+
+            <label>Họ và tên</label>
+            @Html.TextBoxFor(m => m.FullName, new { @class = "form-control" })
+
+            <label>Số điện thoại</label>
+            @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+
+            <label>Địa chỉ</label>
+            @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+
+            <button class="btn-primary">Lưu thay đổi</button>
+        </form>
+    </section>
+</main>
+<style>
+    /* ==================================================
+   ACCOUNT.CSS - PHIÊN BẢN HOÀN CHỈNH 2025
+   Đã hỗ trợ: Sidebar + Nội dung chính (My Profile, OrderHistory...)
+================================================== */
+
+body {
+    background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    margin: 0;
+}
+
+/* Layout chính: Sidebar + Content */
+.account-main {
+    max-width: 1180px;
+    margin: 50px auto;
+    display: flex;
+    gap: 30px;
+    padding: 0 20px;
+}
+
+/* ==================== SIDEBAR ==================== */
+.account-sidebar {
+    width: 280px;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 30px 24px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+}
+
+.account-sidebar .logo {
+    height: 56px;
+    margin-bottom: 30px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    filter: drop-shadow(0 3px 8px rgba(0,0,0,0.1));
+}
+
+.account-sidebar h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #006064;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #b2ebf2;
+}
+
+.account-sidebar a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    color: #333;
+    text-decoration: none;
+    border-radius: 12px;
+    margin-bottom: 6px;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.account-sidebar a:hover,
+.account-sidebar a.active {
+    background: #e0f7fa;
+    color: #00acc1;
+    font-weight: 600;
+}
+
+.account-sidebar a.active {
+    background: #b2ebf2;
+    color: #006064;
+}
+
+/* ==================== NỘI DUNG CHÍNH ==================== */
+.account-content {
+    flex: 1;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.account-content h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #006064;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Form chỉnh sửa hồ sơ */
+.account-content label {
+    display: block;
+    margin: 22px 0 8px;
+    font-weight: 600;
+    color: #333;
+    font-size: 15px;
+}
+
+.account-content .form-control {
+    width: 100%;
+    padding: 15px 16px;
+    border: 1.5px solid #b2ebf2;
+    border-radius: 12px;
+    background: #f8fdfe;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.account-content .form-control:focus {
+    outline: none;
+    border-color: #00acc1;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(0, 172, 193, 0.18);
+}
+
+/* Nút Lưu thay đổi */
+.btn-primary {
+    margin-top: 30px;
+    width: 100%;
+    padding: 16px;
+    background: #00acc1;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background: #00838f;
+}
+
+/* Thông báo */
+.alert-success {
+    background: #e8f5e9;
+    color: #2e7d32;
+    padding: 14px 16px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    border: 1px solid #c8e6c9;
+    text-align: center;
+}
+
+.alert-danger {
+    background: #ffebee;
+    color: #c62828;
+    padding: 14px 16px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    border: 1px solid #ffcdd2;
+    text-align: center;
+}
+
+/* Responsive */
+@@media (max-width: 768px) {
+    .account-main {
+        flex-direction: column;
+    }
+    .account-sidebar {
+        width: 100%;
+    }
+    .account-content {
+        padding: 30px 25px;
+    }
+}
+</style>

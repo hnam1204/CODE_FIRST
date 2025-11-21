@@ -1,0 +1,176 @@
+﻿@{
+    ViewBag.Title = "Đăng nhập";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="~/Content/account.css" />
+
+<main class="account-container">
+    <h2>Đăng nhập</h2>
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">@ViewBag.Error</div>
+    }
+
+    <form method="post" action="@Url.Action("Login", "Account")">
+        @Html.AntiForgeryToken()
+
+        <label>Email</label>
+        <input type="email" name="email" class="form-control" required />
+
+        <label>Mật khẩu</label>
+        <input type="password" name="password" class="form-control" required />
+
+        <div class="login-options">
+            <a href="@Url.Action("ForgotPassword", "Account")" class="forgot-link">
+                Quên mật khẩu?
+            </a>
+        </div>
+
+        <button class="btn btn-success login-btn">Đăng nhập</button>
+    </form>
+
+    <p class="note">
+        Chưa có tài khoản?
+        <a href="@Url.Action("Register", "Account")">Đăng ký ngay</a>
+    </p>
+</main>
+<style>
+    /* =========================================
+   ACCOUNT.CSS - ĐĂNG NHẬP & ĐĂNG KÝ (XANH TRẮNG 2025)
+   Đã hỗ trợ: logo, quên mật khẩu, nút lớn, responsive
+========================================= */
+body {
+    background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    margin: 0;
+}
+
+.account-container {
+    max-width: 460px;
+    margin: 60px auto;
+    padding: 45px 40px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.12);
+    text-align: center;
+    position: relative;
+}
+
+/* Logo */
+.account-container .logo {
+    height: 62px;
+    margin-bottom: 22px;
+    filter: drop-shadow(0 3px 10px rgba(0,0,0,0.1));
+}
+
+/* Tiêu đề */
+.account-container h2 {
+    font-size: 29px;
+    font-weight: 700;
+    color: #006064;
+    margin: 0 0 10px 0;
+}
+
+/* Label */
+.account-container label {
+    display: block;
+    text-align: left;
+    margin: 22px 0 8px;
+    font-weight: 600;
+    color: #333;
+    font-size: 15px;
+}
+
+/* Input */
+.account-container .form-control {
+    width: 100%;
+    padding: 15px 16px;
+    border: 1.5px solid #b2ebf2;
+    border-radius: 12px;
+    background: #f8fdfe;
+    font-size: 16px;
+    transition: all 0.3s;
+    box-sizing: border-box;
+}
+
+.account-container .form-control:focus {
+    outline: none;
+    border-color: #00acc1;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(0, 172, 193, 0.18);
+}
+
+/* Quên mật khẩu */
+.login-options {
+    text-align: right;
+    margin: 12px 0 25px;
+}
+
+.forgot-link {
+    color: #00acc1;
+    font-size: 14.5px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.forgot-link:hover {
+    text-decoration: underline;
+}
+
+/* Nút Đăng nhập */
+.login-btn {
+    width: 100%;
+    padding: 16px;
+    background: #00acc1;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.login-btn:hover {
+    background: #00838f;
+}
+
+/* Lỗi */
+.alert-danger {
+    background: #ffebee;
+    color: #c62828;
+    padding: 14px 16px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    font-size: 14.5px;
+    border: 1px solid #ffcdd2;
+}
+
+/* Dòng ghi chú dưới cùng */
+.note {
+    margin-top: 28px;
+    color: #555;
+    font-size: 15px;
+}
+
+.note a {
+    color: #00acc1;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.note a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@@media (max-width: 480px) {
+    .account-container {
+        margin: 30px 18px;
+        padding: 40px 30px;
+    }
+    .account-container .logo { height: 52px; }
+}
+</style>

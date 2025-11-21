@@ -1,0 +1,112 @@
+﻿@model List<HV_NIX.Models.ShippingAddress>
+@{
+    ViewBag.Title = "Địa chỉ giao hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="~/Content/account.css" />
+
+<main class="account-main">
+
+    @Html.Partial("_AccountSidebar")
+
+    <section class="account-content">
+        <h2>📦 Địa chỉ giao hàng</h2>
+
+        <!-- Nút mở modal thêm địa chỉ -->
+        <button class="btn-primary" id="btnAddAddress" style="margin-bottom:25px;">
+            ➕ Thêm địa chỉ mới
+        </button>
+
+        @if (!Model.Any())
+        {
+            <p>⚠️ Bạn chưa có địa chỉ giao hàng nào.</p>
+        }
+        else
+        {
+            foreach (var a in Model)
+            {
+                <div class="address-card @(a.IsDefault ? "default" : "")">
+
+                    <div class="address-info">
+                        <strong>@a.ReceiverName</strong> • @a.Phone
+                        <br />
+                        <span>@a.AddressLine, @a.City</span>
+
+                        @if (a.IsDefault)
+                        {
+                            <span class="tag-default">Mặc định</span>
+                        }
+                    </div>
+
+                    <div class="address-actions">
+
+                        @if (!a.IsDefault)
+                        {
+                            <a href="@Url.Action("SetDefault", "Shipping", new { id = a.AddressID })"
+                               class="btn-small">
+                                Đặt mặc định
+                            </a>
+                        }
+
+                        <a href="@Url.Action("Delete", "Shipping", new { id = a.AddressID })"
+                           onclick="return confirm('Bạn có chắc muốn xóa địa chỉ này?');"
+                           class="btn-small danger">
+                            Xóa
+                        </a>
+
+                    </div>
+                </div>
+            }
+        }
+    </section>
+
+</main>
+
+<!-- =================== MODAL THÊM ĐỊA CHỈ =================== -->
+<div id="modalAdd" class="modal-add">
+    <div class="modal-content">
+
+        <h3>➕ Thêm địa chỉ mới</h3>
+
+        <form method="post" action="@Url.Action("Add", "Shipping")">
+
+            <label>Họ tên người nhận</label>
+            <input type="text" name="name" required class="form-control" />
+
+            <label>Số điện thoại</label>
+            <input type="text" name="phone" required class="form-control" />
+
+            <label>Địa chỉ</label>
+            <input type="text" name="address" required class="form-control" />
+
+            <label>Thành phố</label>
+            <input type="text" name="city" required class="form-control" />
+
+            <label style="margin-top:15px;">
+                <input type="checkbox" name="isDefault" />
+                Đặt làm địa chỉ mặc định
+            </label>
+
+            <button class="btn-primary" style="margin-top:25px;">Lưu địa chỉ</button>
+        </form>
+
+        <button id="closeModal" class="btn-close">Đóng</button>
+    </div>
+</div>
+
+<script>
+    const modal = document.getElementById('modalAdd');
+
+    document.getElementById('btnAddAddress').onclick = () => {
+        modal.classList.add("active");
+    };
+
+    document.getElementById('closeModal').onclick = () => {
+        modal.classList.remove("active");
+    };
+
+    // Đóng modal khi bấm nền mờ
+    window.onclick = function (e) {
+        if (e.target === modal) modal.classList.remove("active");
+    }
+</script>

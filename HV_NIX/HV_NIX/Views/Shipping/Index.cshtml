@@ -1,0 +1,297 @@
+﻿@model List<HV_NIX.Models.ShippingAddress>
+@{
+    ViewBag.Title = "Địa chỉ giao hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="~/Content/account.css" />
+
+<main class="account-main">
+
+    @Html.Partial("_AccountSidebar")
+
+    <section class="account-content">
+        <h2>📦 Địa chỉ giao hàng</h2>
+
+        <!-- Nút thêm địa chỉ -->
+        <button class="btn-primary" id="btnAddAddress" style="margin-bottom:25px;">
+            ➕ Thêm địa chỉ mới
+        </button>
+
+        @if (!Model.Any())
+        {
+            <p>⚠️ Bạn chưa có địa chỉ giao hàng nào.</p>
+        }
+        else
+        {
+            foreach (var a in Model)
+            {
+                <div class="address-card @(a.IsDefault ? "default" : "")">
+                    <div class="address-info">
+                        <strong>@a.ReceiverName</strong> • @a.Phone
+                        <br />
+                        <span>@a.AddressLine, @a.City</span>
+
+                        @if (a.IsDefault)
+                        {
+                            <span class="tag-default">Mặc định</span>
+                        }
+                    </div>
+
+                    <div class="address-actions">
+                        @if (!a.IsDefault)
+                        {
+                            <a href="@Url.Action("SetDefault", "Shipping", new { id = a.AddressID })"
+                               class="btn-small">Đặt mặc định</a>
+                        }
+
+                        <a href="@Url.Action("Delete", "Shipping", new { id = a.AddressID })"
+                           onclick="return confirm('Bạn có chắc muốn xóa địa chỉ này?');"
+                           class="btn-small danger">Xóa</a>
+                    </div>
+                </div>
+            }
+        }
+
+    </section>
+</main>
+
+
+<!-- =============== MODAL THÊM ĐỊA CHỈ =============== -->
+<div id="modalAdd" class="modal-add">
+    <div class="modal-content">
+        <h3>➕ Thêm địa chỉ mới</h3>
+
+        <form method="post" action="@Url.Action("Add", "Shipping")">
+            <label>Họ tên người nhận</label>
+            <input type="text" name="name" required class="form-control" />
+
+            <label>Số điện thoại</label>
+            <input type="text" name="phone" required class="form-control" />
+
+            <label>Địa chỉ</label>
+            <input type="text" name="address" required class="form-control" />
+
+            <label>Thành phố</label>
+            <input type="text" name="city" required class="form-control" />
+
+            <label style="margin-top:15px;">
+                <input type="checkbox" name="isDefault" /> Đặt làm địa chỉ mặc định
+            </label>
+
+            <button class="btn-primary" style="margin-top:25px;">Lưu địa chỉ</button>
+        </form>
+
+        <button id="closeModal" class="btn-close">Đóng</button>
+    </div>
+</div>
+
+<style>
+    /* ==================================================
+   ĐỊA CHỈ GIAO HÀNG - PHIÊN BẢN MỚI NHẤT (2025)
+   Thêm vào cuối file ~/Content/account.css
+================================================== */
+
+/* Nút "Thêm địa chỉ mới" ở đầu trang */
+#btnAddAddress {
+    display: block;
+    margin-left: auto;
+    margin-bottom: 28px;
+    padding: 12px 28px;
+    background: #00acc1;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 15.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#btnAddAddress:hover {
+    background: #00838f;
+}
+
+/* Card địa chỉ */
+.address-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8fdfe;
+    border: 2px solid #b2ebf2;
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    transition: all 0.3s;
+}
+
+.address-card:hover {
+    box-shadow: 0 8px 25px rgba(0,172,193,0.15);
+}
+
+.address-card.default {
+    border-color: #00acc1;
+    background: #e0f7fa;
+    position: relative;
+}
+
+.address-card.default::after {
+    content: "Mặc định";
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: #00acc1;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 14px;
+    border-radius: 20px;
+}
+
+.address-info strong {
+    font-size: 17px;
+    color: #006064;
+}
+
+.address-info span {
+    color: #444;
+    font-size: 15px;
+}
+
+/* Tag mặc định (nếu dùng <span class="tag-default">) */
+.tag-default {
+    display: inline-block;
+    margin-left: 10px;
+    background: #00acc1;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+}
+
+/* Nút hành động nhỏ */
+.address-actions .btn-small {
+    padding: 8px 16px;
+    font-size: 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-left: 8px;
+}
+
+.address-actions .btn-small:first-child { margin-left: 0; }
+
+.address-actions .btn-small {
+    background: #eceff1;
+    color: #006064;
+}
+
+.address-actions .btn-small:hover {
+    background: #b2ebf2;
+}
+
+.address-actions .btn-small.danger {
+    background: #ff5252;
+    color: white;
+}
+
+.address-actions .btn-small.danger:hover {
+    background: #e53935;
+}
+
+/* ==================== MODAL THÊM ĐỊA CHỈ ==================== */
+.modal-add {
+    display: none;                              /* JS sẽ bật flex */
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(6px);
+}
+
+.modal-add.active {        /* class active sẽ được JS thêm vào */
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    width: 90%;
+    max-width: 540px;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.22);
+    position: relative;
+    animation: modalShow 0.35s ease-out;
+}
+
+@@keyframes modalShow {
+    from { opacity: 0; transform: translateY(-50px) scale(0.95); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modal-content h3 {
+    margin: 0 0 28px;
+    text-align: center;
+    font-size: 24px;
+    color: #006064;
+}
+
+.modal-content label {
+    display: block;
+    margin: 20px 0 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+.modal-content .form-control {
+    width: 100%;
+    padding: 15px 16px;
+    border: 1.5px solid #b2ebf2;
+    border-radius: 12px;
+    background: #f8fdfe;
+    font-size: 16px;
+}
+
+.modal-content .form-control:focus {
+    border-color: #00acc1;
+    box-shadow: 0 0 0 4px rgba(0,172,193,0.18);
+    background: white;
+}
+
+/* Nút đóng modal */
+#closeModal {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #999;
+    cursor: pointer;
+}
+
+#closeModal:hover { color: #333; }
+
+/* Responsive */
+@@media (max-width: 768px) {
+    .address-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    .address-actions { width: 100%; }
+    .address-actions .btn-small { flex: 1; text-align: center; }
+}
+</style>
+<script>
+    const modal = document.getElementById('modalAdd');
+    document.getElementById('btnAddAddress').onclick = () => modal.classList.add('active');
+    document.getElementById('closeModal').onclick = () => modal.classList.remove('active');
+
+    // Đóng khi click ngoài modal
+    window.onclick = function (e) {
+        if (e.target === modal) modal.classList.remove('active');
+    }
+</script>

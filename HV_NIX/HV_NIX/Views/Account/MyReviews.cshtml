@@ -1,0 +1,153 @@
+﻿@model List<HV_NIX.Models.Reviews>
+@{
+    ViewBag.Title = "Đánh giá của tôi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="~/Content/account.css" />
+
+<main class="account-main">
+    @Html.Partial("_AccountSidebar")
+
+    <section class="account-content">
+        <h2>⭐ Đánh giá của tôi</h2>
+
+        @if (!Model.Any())
+        {
+            <p>Bạn chưa viết đánh giá nào.</p>
+        }
+        else
+        {
+            foreach (var r in Model)
+            {
+                <div class="review-card">
+                    <div class="review-header">
+                        <strong>Sản phẩm:</strong> @r.Product.ProductName
+                        <span class="review-date">@r.ReviewDate.ToString("dd/MM/yyyy HH:mm")</span>
+                    </div>
+
+                    <div class="review-rating">
+                        @{
+                            for (int i = 1; i <= 5; i++)
+                            {
+                                if (i <= r.Rating)
+                                {
+                                    @:<span class="star full">★</span>
+                                }
+                                else
+                                {
+                                    @:<span class="star">☆</span>
+                                }
+                            }
+                        }
+                    </div>
+
+                    <div class="review-comment">@r.Comment</div>
+
+                    <a href="@Url.Action("DeleteReview","Account",new { id = r.ReviewID })"
+                       onclick="return confirm('Xóa đánh giá này?')"
+                       class="btn-small danger">
+                        Xóa
+                    </a>
+                </div>
+            }
+        }
+    </section>
+</main>
+<style>
+    /* ==================================================
+   ĐÁNH GIÁ CỦA TÔI - THÊM VÀO account.css
+================================================== */
+
+/* Card đánh giá */
+.review-card {
+    background: #ffffff;
+    border: 2px solid #b2ebf2;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s;
+}
+
+.review-card:hover {
+    border-color: #00acc1;
+    box-shadow: 0 10px 30px rgba(0,172,193,0.15);
+}
+
+/* Header: tên sản phẩm + ngày */
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.review-header strong {
+    font-size: 17px;
+    color: #006064;
+}
+
+.review-date {
+    font-size: 14px;
+    color: #777;
+}
+
+/* Đánh giá sao */
+.review-rating {
+    margin-bottom: 16px;
+    font-size: 28px;
+    letter-spacing: 4px;
+}
+
+.review-rating .star {
+    color: #ddd;
+    transition: color 0.2s;
+}
+
+.review-rating .star.full {
+    color: #ffc107;   /* vàng sao */
+}
+
+/* Nội dung đánh giá */
+.review-comment {
+    margin-bottom: 20px;
+    line-height: 1.6;
+    color: #333;
+    font-size: 15.5px;
+}
+
+/* Nút Xóa (dùng lại btn-small danger) */
+.review-card .btn-small.danger {
+    padding: 8px 18px;
+    background: #ff5252;
+    color: white;
+    border-radius: 10px;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.review-card .btn-small.danger:hover {
+    background: #e53935;
+}
+
+/* Khi chưa có đánh giá */
+.account-content p {
+    text-align: center;
+    color: #777;
+    font-size: 16px;
+    margin-top: 40px;
+}
+
+/* Responsive */
+@@media (max-width: 768px) {
+    .review-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .review-header strong {
+        margin-bottom: 4px;
+    }
+}
+</style>

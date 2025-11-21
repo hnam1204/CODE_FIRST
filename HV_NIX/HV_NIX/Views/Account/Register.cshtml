@@ -1,0 +1,149 @@
+﻿@{
+    ViewBag.Title = "Đăng ký tài khoản";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main class="account-container">
+    <h2>Đăng ký tài khoản</h2>
+
+    @if (ViewBag.Error != null)
+    {
+        <div class="alert alert-danger">@ViewBag.Error</div>
+    }
+
+    <form method="post" action="@Url.Action("Register", "Account")">
+        @Html.AntiForgeryToken()
+
+        <label>Họ và tên</label>
+        <input name="fullname" class="form-control" required />
+
+        <label>Số điện thoại</label>
+        <input name="phone" class="form-control" required />
+
+        <label>Địa chỉ</label>
+        <input name="address" class="form-control" required />
+
+        <label>Email</label>
+        <input type="email" name="email" class="form-control" required />
+
+        <label>Mật khẩu</label>
+        <input type="password" name="password" class="form-control" required />
+
+        <label>Xác nhận mật khẩu</label>
+        <input type="password" name="confirmPassword" class="form-control" required />
+
+        <button class="btn btn-primary">Đăng ký</button>
+    </form>
+</main>
+<style>
+    /* =========================================
+========================================= */
+body {
+    background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.account-container {
+    max-width: 460px;
+    margin: 80px auto;
+    padding: 40px 40px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Logo (nếu có) - bạn thêm thẻ <img> ở trên h2 nếu cần */
+.account-container h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #006064;
+    margin-bottom: 10px;
+}
+
+.account-container p {
+    color: #555;
+    margin-bottom: 30px;
+    font-size: 15px;
+}
+
+/* Label */
+.account-container label {
+    display: block;
+    text-align: left;
+    margin: 20px 0 8px;
+    font-weight: 600;
+    color: #333;
+    font-size: 15px;
+}
+
+/* Input */
+.account-container .form-control {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #b2ebf2;
+    border-radius: 12px;
+    background: #f5fcfd;
+    font-size: 16px;
+    transition: all 0.3s;
+    box-sizing: border-box;
+}
+
+.account-container .form-control:focus {
+    outline: none;
+    border-color: #00acc1;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(0, 172, 193, 0.15);
+}
+
+/* Nút xanh cyan chuẩn như hình */
+.account-container .btn-primary {
+    margin-top: 25px;
+    width: 100%;
+    padding: 15px;
+    background: #00acc1;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.account-container .btn-primary:hover {
+    background: #00838f;
+}
+
+/* Thông báo lỗi */
+.alert-danger {
+    background: #ffebee;
+    color: #c62828;
+    padding: 14px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    font-size: 14.5px;
+}
+
+/* Liên kết "Tạo tài khoản mới" */
+.account-container a {
+    color: #00acc1;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.account-container a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@@media (max-width: 480px) {
+    .account-container {
+        margin: 40px 20px;
+        padding: 35px 30px;
+    }
+}
+</style>
